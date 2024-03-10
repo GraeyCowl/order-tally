@@ -7,26 +7,20 @@ let itemTally = {
 
 // Function to add order
 function addOrder() {
-    let appleCheckbox = document.getElementById("appleCheckbox");
-    let milkCheckbox = document.getElementById("milkCheckbox");
-    let yogurtCheckbox = document.getElementById("yogurtCheckbox");
+    let appleQuantity = parseInt(document.getElementById("appleQuantity").value);
+    let milkQuantity = parseInt(document.getElementById("milkQuantity").value);
+    let yogurtQuantity = parseInt(document.getElementById("yogurtQuantity").value);
 
-    // Increment tally for selected items
-    if (appleCheckbox.checked) {
-        itemTally.apple++;
-    }
-    if (milkCheckbox.checked) {
-        itemTally.milk++;
-    }
-    if (yogurtCheckbox.checked) {
-        itemTally.yogurt++;
-    }
+    // Increment tally for each item
+    itemTally.apple += appleQuantity;
+    itemTally.milk += milkQuantity;
+    itemTally.yogurt += yogurtQuantity;
 
     displayOrders();
-    // Reset checkboxes
-    appleCheckbox.checked = false;
-    milkCheckbox.checked = false;
-    yogurtCheckbox.checked = false;
+    // Reset input fields
+    document.getElementById("appleQuantity").value = 0;
+    document.getElementById("milkQuantity").value = 0;
+    document.getElementById("yogurtQuantity").value = 0;
 }
 
 // Function to display orders

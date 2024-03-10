@@ -9,13 +9,13 @@
 <body>
     <h1>Lunch Order Tally</h1>
     <div id="orderForm">
-        <h2>Select your items:</h2>
-        <input type="checkbox" id="appleCheckbox" value="apple">
-        <label for="appleCheckbox">Apple</label><br>
-        <input type="checkbox" id="milkCheckbox" value="milk">
-        <label for="milkCheckbox">Milk</label><br>
-        <input type="checkbox" id="yogurtCheckbox" value="yogurt">
-        <label for="yogurtCheckbox">Yogurt</label><br>
+        <h2>Select your items and quantities:</h2>
+        <label for="appleQuantity">Apple:</label>
+        <input type="number" id="appleQuantity" value="0" min="0"><br>
+        <label for="milkQuantity">Milk:</label>
+        <input type="number" id="milkQuantity" value="0" min="0"><br>
+        <label for="yogurtQuantity">Yogurt:</label>
+        <input type="number" id="yogurtQuantity" value="0" min="0"><br>
         <button onclick="addOrder()">Add Order</button>
     </div>
     <div id="orderList">
