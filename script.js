@@ -1,5 +1,5 @@
-// Array to store orders
-let orders = [];
+// Object to store tally of items
+let itemTally = {};
 
 // Function to add order
 function addOrder() {
@@ -7,7 +7,16 @@ function addOrder() {
     let order = orderInput.value.trim();
 
     if (order !== "") {
-        orders.push(order);
+        // Extracting item from order
+        let item = order.toLowerCase();
+
+        // Incrementing tally for the item
+        if (itemTally[item]) {
+            itemTally[item]++;
+        } else {
+            itemTally[item] = 1;
+        }
+
         displayOrders();
         orderInput.value = "";
     } else {
@@ -20,9 +29,10 @@ function displayOrders() {
     let ordersList = document.getElementById("orders");
     ordersList.innerHTML = "";
 
-    for (let i = 0; i < orders.length; i++) {
+    for (let item in itemTally) {
         let listItem = document.createElement("li");
-        listItem.textContent = orders[i];
+        listItem.classList.add("orderItem");
+        listItem.textContent = `${item}: ${itemTally[item]}`;
         ordersList.appendChild(listItem);
     }
 }

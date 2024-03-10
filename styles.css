@@ -9,3 +9,7 @@ body {
 #orderList {
     margin-top: 20px;
 }
+
+.orderItem {
+    list-style-type: none;
+}
