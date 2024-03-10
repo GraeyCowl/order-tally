@@ -9,8 +9,13 @@
 <body>
     <h1>Lunch Order Tally</h1>
     <div id="orderForm">
-        <label for="orderInput">Enter your lunch order:</label>
-        <input type="text" id="orderInput">
+        <h2>Select your items:</h2>
+        <input type="checkbox" id="appleCheckbox" value="apple">
+        <label for="appleCheckbox">Apple</label><br>
+        <input type="checkbox" id="milkCheckbox" value="milk">
+        <label for="milkCheckbox">Milk</label><br>
+        <input type="checkbox" id="yogurtCheckbox" value="yogurt">
+        <label for="yogurtCheckbox">Yogurt</label><br>
         <button onclick="addOrder()">Add Order</button>
     </div>
     <div id="orderList">

@@ -1,27 +1,32 @@
 // Object to store tally of items
-let itemTally = {};
+let itemTally = {
+    apple: 0,
+    milk: 0,
+    yogurt: 0
+};
 
 // Function to add order
 function addOrder() {
-    let orderInput = document.getElementById("orderInput");
-    let order = orderInput.value.trim();
+    let appleCheckbox = document.getElementById("appleCheckbox");
+    let milkCheckbox = document.getElementById("milkCheckbox");
+    let yogurtCheckbox = document.getElementById("yogurtCheckbox");
 
-    if (order !== "") {
-        // Extracting item from order
-        let item = order.toLowerCase();
-
-        // Incrementing tally for the item
-        if (itemTally[item]) {
-            itemTally[item]++;
-        } else {
-            itemTally[item] = 1;
-        }
-
-        displayOrders();
-        orderInput.value = "";
-    } else {
-        alert("Please enter a valid order.");
+    // Increment tally for selected items
+    if (appleCheckbox.checked) {
+        itemTally.apple++;
     }
+    if (milkCheckbox.checked) {
+        itemTally.milk++;
+    }
+    if (yogurtCheckbox.checked) {
+        itemTally.yogurt++;
+    }
+
+    displayOrders();
+    // Reset checkboxes
+    appleCheckbox.checked = false;
+    milkCheckbox.checked = false;
+    yogurtCheckbox.checked = false;
 }
 
 // Function to display orders
@@ -30,9 +35,10 @@ function displayOrders() {
     ordersList.innerHTML = "";
 
     for (let item in itemTally) {
-        let listItem = document.createElement("li");
-        listItem.classList.add("orderItem");
-        listItem.textContent = `${item}: ${itemTally[item]}`;
-        ordersList.appendChild(listItem);
+        if (itemTally[item] > 0) {
+            let listItem = document.createElement("li");
+            listItem.textContent = `${item}: ${itemTally[item]}`;
+            ordersList.appendChild(listItem);
+        }
     }
 }
